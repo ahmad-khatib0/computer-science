@@ -1,0 +1,45 @@
+- Big O notation
+  Big-O notation provides a way to describe the long-term growth rate of an algorithm’s performance. In
+  simpler terms, it tells us how the runtime of an algorithm increases as the input size grows. Let’s 
+  break it down with the help of two functions, f(n) and g(n). If we say f = O(g), what we mean is that
+  as n approaches infinity, the ratio f(n)/g(n) stays limited or bounded. In other words, no matter 
+  how large our input gets, f(n) will not grow disproportionately faster than g(n).
+
+  Let’s look at particular functions:
+  f(n) = 1000n^2 + 100n  + 10        and        g(n) = n^2
+  Note that both functions will approach infinity as n approaches infinity. 
+  Let’s ﬁnd out if f = O(g) by applying the deﬁnition: 
+  First, let us calculate: f(n)/g(n)   =>   
+    f(n)/g(n) = 1000n^2 + 100n + 10 / n^2  = (1000 + 100/n + 10/n^2 )
+  it clear that f(n)/g(n) is bounded and will not approach infinity as n approaches infinity.
+  thus f(n) = O(g) = O(n^2)
+  (n^2 ) represents that the complexity of this function increases as the square of input n. 
+  If we double the number of input elements, the complexity is expected to increase by 4.
+
+Note the following 4 rules when dealing with Big-O notation: 
+● Rule 1:
+  Let us look into the complexity of loops in algorithms. If an algorithm performs a certain 
+  sequence of steps n times, then it has O(n) performance.
+  
+● Rule 2:
+  Let us look into the nested loops of the algorithms. If an algorithm performs a function that has a
+  loop of n^1 steps, and for each loop it performs another n^2 steps, the algorithm’s total performance
+  is O(n^1 × n^2). For example, if an algorithm has both outer and inner loops having n steps, then 
+  the complexity of the algorithm will be represented by: O(n*n) = O(n^2)
+
+● Rule 3:
+  If an algorithm performs a function f(n) that takes n^1 steps and then performs another function
+  g(n) that takes n^2 steps, the algorithm’s total performance is O(f(n) + g(n)).
+
+● Rule 4:
+  If an algorithm takes O(g(n) + h(n)) and the function g(n) is greater than h(n) for large n, 
+  the algorithm’s performance can be simplified to O(g(n)). It means that O(1+n) = O(n). 
+  And O(n^2 + n^3) = O(n^2).
+
+● Rule 5:
+  When calculating the complexity of an algorithm, ignore constant multiples. 
+  If k is a constant, O(kf(n)) is the same as O(f(n)).
+  Also, O(f(k × n)) is the same as O(f(n)). 
+  Thus O(5n^2) = O(n^2). 
+  And O((3n^2)) = O(n^2).
+

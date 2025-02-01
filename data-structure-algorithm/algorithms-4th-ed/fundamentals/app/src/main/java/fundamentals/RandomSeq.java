@@ -1,6 +1,6 @@
 package fundamentals;
 
-package edu.princeton.cs.algs4;
+// import ;
 
 import java.util.Random;
 

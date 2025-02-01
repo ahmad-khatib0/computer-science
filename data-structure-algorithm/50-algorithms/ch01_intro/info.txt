@@ -1,0 +1,97 @@
+✅Eenerally, the algorithms can be divided into the following types based on the characteristics 
+  of the problem:
+
+● Data-intensive algorithms: Data-intensive algorithms are designed to deal with a large amount of data.
+  They are expected to have relatively simplistic processing requirements. A compression algorithm applied
+  to a huge file is a good example of data-intensive algorithms. For such algorithms, the size of the 
+  data is expected to be much larger than the memory of the processing engine (a single node or cluster), 
+  and an iterative processing design may need to be developed to efficiently process the data according 
+  to the requirements.
+● Compute-intensive algorithms: Compute-intensive algorithms have considerable processing requirements but
+  do not involve large amounts of data. A simple example is the algorithm to find a very large prime number.
+  Finding a strategy to divide the algorithm into different phases so that at least some of the phases are
+  parallelized is key to maxi- mizing the performance of the algorithm.
+● Both data and compute-intensive algorithms: There are certain algorithms that deal with a large amount 
+  of data and also have considerable computing requirements. Algorithms used to perform sentiment analysis
+  on live video feeds are a good example of where both the data and the processing requirements are huge 
+  in accomplishing the task. Such algorithms are the most resource-intensive algorithms and require 
+  careful design of the algorithm and intelligent allocation of available resources.
+
+The data dimension
+- To categorize the data dimension of the problem, we look at its volume, velocity, and variety 
+  (the 3Vs), which are defined as follows:
+● Volume: The volume is the expected size of the data that the algorithm will process.
+● Velocity: The velocity is the expected rate of new data generation when the algorithm 
+  is used. It can be zero.
+● Variety: The variety quantifies how many different types of data the designed algorithm is 
+  expected to deal with.
+
+- Complexity theory is the study of how complicated algorithms are. To be useful, 
+  any algorithm should have three key features:
+  ● Should be correct
+  ● Should be understandable
+  ● Should be efficient
+   
+- There are two possible types of analysis to quantify the complexity of an algorithm:
+• Space complexity analysis: Estimates the runtime memory requirements needed to execute the algorithm.
+• Time complexity analysis: Estimates the time the algorithm will take to run.
+
+- Complex algorithms tend to be iterative in nature. Instead of bringing all the information into 
+  the memory at once, such algorithms iteratively populate the data structures.
+   
+- An iterative algorithm can use one of the following three types of iterations: 
+  ● Converging Iterations: As the algorithm proceeds through iterations, the amount of 
+    data it processes in each individual iteration decreases.
+  ● Diverging Iterations: As the algorithm proceeds through iterations, the amount of 
+    data it processes in each individual iteration increases.
+  ● Flat Iterations: As the algorithm proceeds through iterations, the amount of data it pro-
+    cesses in each individual iteration remains constant
+    
+- The overall goal of time complexity analysis is to try to answer these important two questions:
+  ● Will this algorithm scale? A well-designed algorithm should be fully capable of taking advantage of 
+    the modern elastic infrastructure available in cloud computing environments. An algorithm should be 
+    designed in a way such that it can utilize the availability of more CPUs, processing cores, GPUs, and
+    memory. For example, an algorithm used for training a model in a machine learning problem should be 
+    able to use distributed training as more CPUs are available. Such algorithms should also take 
+    advantage of GPUs and additional memory if made available during the execution of the algorithm.
+  ● How well will this algorithm handle larger datasets?
+
+There can be two basic approaches to calculating the time complexity of an algorithm:
+● A post-implementation profiling approach: In this approach, different candidate algorithms 
+  are implemented, and their performance is compared.
+● A pre-implementation theoretical approach: In this approach, the performance of each 
+  algorithm is approximated mathematically before running an algorithm.
+
+- 
+● Linear time (O(n)) complexity: An algorithm is said to have a complexity of linear time, 
+  represented by O(n), if the execution time is directly proportional to the size of the input.
+  
+● Quadratic time (O(n2)) complexity: An algorithm is said to run in quadratic time if the 
+  execution time of an algorithm is proportional to the square of the input size
+  
+● Logarithmic time (O(logn)) complexity
+  An algorithm is said to run in logarithmic time if the execution time of the algorithm is proportional
+  to the logarithm of the input size. With each iteration, the input size decreases by constant multiple 
+  factors. An example of a logarithmic algorithm is binary search. The binary search algorithm is used 
+  to find a particular element in a one-dimensional data structure, such as a Python list. The elements 
+  within the data structure need to be sorted in descending order. 
+
+- Algorithms can also be divided into the following two types based on assumptions or 
+  approximation used to simplify the logic to make them run faster:
+● An exact algorithm: Exact algorithms are expected to produce a precise 
+  solution without introducing any assumptions or approximations.
+● An approximate algorithm: When the problem complexity is too much to handle for the given resources, 
+  we simplify our problem by making some assumptions. The algorithms based on these simplifications or 
+  assumptions are called approximate algorithms, which don’t quite give us the precise solution.
+
+- Validating an approximation algorithm is about verifying that the error of 
+  the results is within an acceptable range.
+
+- Explainability
+  When algorithms are used for critical cases, it becomes important to have the ability to 
+  explain the reason behind each and every result whenever needed. This is necessary to make 
+  sure that decisions based on the results of the algorithms do not introduce bias.
+
+
+
+
