@@ -26,8 +26,26 @@
   structure we have and then insert it into its right position. That is why we call this the insertion
   sort algorithm.
 
+- Performance analysis of the insertion sort algorithm
+● Best case scenario
+  When the input data is already sorted, insertion sort demonstrates its best behavior. In such cases,
+  the algorithm efficiently runs in linear time, denoted as O(n), 
+● Worst case scenario
+  The efficiency takes a hit when the input is in reverse order, meaning the largest element is at the
+  beginning. Here, for every element i (where i stands for the current element’s index in the loop),
+  the inner loop might need to shift almost all preceding elements. The performance of insertion
+  sort in this scenario can be represented mathematically by a quadratic function of the form:
+                        (w x i^2) + (N x i) + 𝜖
+• w is a weighting factor, adjusting the effect of i^2.
+• N represents a coefficient that scales with the size of the input.
+• 𝜖 is a constant, typically representing minor overheads not covered by the other terms.
 
-
-
+● Average case scenario
+  Generally, the average performance of insertion sort tends to be quadratic, which can be 
+  problematic for larger datasets.
+  Use cases and recommendations
+  Insertion sort is exceptionally efficient for:
+● Small datasets.
+● Nearly sorted datasets, where only a few elements are out of order.
 
 
