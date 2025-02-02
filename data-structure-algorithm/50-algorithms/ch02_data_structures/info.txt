@@ -1,0 +1,217 @@
+The time complexity of lists
+● Inserting an element: The insertion of an element at the end of a list typically has a constant time
+  complexity, denoted as O(1). This means the time taken for this operation remains fairly consistent, 
+  irrespective of the list’s size.
+  
+● Deleting an element: Deleting an element from a list can have a time complexity of O(n) in its 
+  worst-case scenario. This is because, in the least favorable situation, the program might need 
+  to traverse the entire list before removing the desired element.
+  
+● Slicing: When we slice a list or extract a portion of it, the operation can take time 
+  proportional to the size of the slice; hence, its time complexity is O(n).
+
+● Element retrieval: Finding an element within a list, without any indexing, can require scanning 
+  through all its elements in the worst case. Thus, its time complexity is also O(n). 
+  
+● Copying: Creating a copy of the list necessitates visiting every element once, leading to a 
+  time complexity of O(n).
+
+- Wherever possible, immutable data structures (such as tuples) should be preferred over mutable data
+  structures (such as lists) due to performance. Especially when dealing with big data, immutable data 
+  structures are considerably faster than mutable ones. When a data structure is passed to a function as
+  immutable, its copy does not need to be created as the function cannot change it. So, the output can 
+  refer to the input data structure. This is called referential transparency and improves the performance.
+  There is a price we pay for the ability to change data elements in lists and we should carefully analyze
+  whether it is really needed so we can implement the code as read-only tuples, which will be much faster.
+
+- The time complexity of various functions of tuples can be summarized as follows (using Big O notation):
+● Accessing an element: Tuples allow direct access to their elements via indexing. This operation is 
+  constant time, O(1), meaning the time taken remains consistent regardless of the tuple’s size.
+  
+● Slicing: When a portion of a tuple is extracted or sliced, the operation’s efficiency is pro-
+  portional to the size of the slice, resulting in a time complexity of O(n).
+  
+● Element retrieval: Searching for an element in a tuple, in the absence of any indexing aid, might 
+  require traversing all its elements in the worst-case scenario. Hence, its time complexity is O(n).
+  
+● Copying: Duplicating a tuple, or creating its copy, requires iterating through each 
+  element once, giving it a time complexity of O(n).
+
+- The time complexity of a dictionary
+- For Python dictionaries, the time complexities for various operations are listed here:
+● Accessing a value by key: Dictionaries are designed for fast look-ups. When you have the key,
+  accessing the corresponding value is, on average, a constant time operation, O(1).
+  This holds true unless there’s a hash collision, which is a rare scenario.
+● Inserting a key-value pair: Adding a new key-value pair is generally a swift operation
+  with a time complexity of O(1).
+● Deleting a key-value pair: Removing an entry from a dictionary, when the key is known,
+  is also an O(1) operation on average.
+● Searching for a key: Verifying the presence of a key, thanks to hashing mechanisms, is
+  usually a constant time, O(1), operation. However, worst-case scenarios could elevate
+  this to O(n), especially with many hash collisions.
+● Copying: Creating a duplicate of a dictionary necessitates going through each key-value
+  pair, resulting in a linear time complexity, O(n).
+  
+- Time complexity analysis for sets
+● Add an element            O(1)
+● Remove an element         O(1)
+● Copy                      O(n)
+
+- 
+● Series: A one-dimensional array of values
+● DataFrame: A two-dimensional data structure used to store tabular data
+
+- In pandas Series-based data structures, there is a term called “axis,” which is used to represent a 
+  sequence of values in a particular dimension. Series has only “axis 0” because it has only one dimension.
+
+- DataFrame
+  A DataFrame is built upon the Series data structure. It is stored as two-dimensional tabular data.
+  It is used to process traditional structured data
+
+- Creating a subset of a DataFrame
+  Fundamentally, there are two main ways of creating the subset of a DataFrame:
+● Column selection
+● Row selection
+
+- Column selection
+  In machine learning algorithms, selecting the right set of features is an important task. Out of all
+  of the features that we may have, not all of them may be needed at a particular stage of the algorithm.
+  In Python, feature selection is achieved by column selection
+
+- Row selection
+  Each row in a DataFrame corresponds to a data point in our problem space. We need to perform
+  row selection if we want to create a subset of the data elements that we have in our problem 
+  space. This subset can be created by using one of the two following methods:
+● By specifying their position
+● By specifying a filter
+
+
+- Time complexity analysis for sets
+  Let’s unveil the time complexities of some fundamental DataFrame operations.
+● Selection operations
+  • Column selection: Accessing a DataFrame column, often done using the bracket notation or dot 
+    notation (for column names without spaces), is an O(1) operation. It offers a quick reference 
+    to the data without copying.
+  • Row selection: Using methods like .loc[] or .iloc[] to select rows, especially with slicing, 
+    has a time complexity of O(n), where “n” represents the number of rows you’re accessing.
+● Insertion operations
+  • Column insertion: Appending a new column to a DataFrame is typically an O(1) operation. 
+    However, the actual time can vary depending on the data type and size of the data being added.
+  • Row insertion: Adding rows using methods like .append() or .concat() can
+    result in an O(n) complexity since it often requires rearranging and reallocation.
+● Deletion operations
+  • Column deletion: Dropping a column from a DataFrame, facilitated by the .drop() method, is an 
+    O(1) operation. It marks the column for garbage collection rather than immediate deletion.
+  • Row deletion: Similar to row insertion, row deletion can lead to an O(n) time
+    complexity, as the DataFrame has to rearrange its structure.
+
+- Matrices
+  A matrix is a two-dimensional data structure with a fixed number of columns and rows. 
+  Each element of a matrix can be referred to by its column and the row.
+
+- Big O notation and matrices
+  When discussing the efficiency of operations, the Big O notation provides a high-level 
+  understanding of its impact as data scales:
+● Access: Accessing an element, whether in a Python list or a numpy array, is a constant time
+  operation, O(1). This is because, with the index of the element, you can directly access it.
+● Appending: Appending an element at the end of a Python list is an average-case O(1) operation. 
+  However, for a numpy array, the operation can be O(n) in the worst case, as the entire array might
+  need to be copied to a new memory location if there’s no contiguous space available.
+● Matrix multiplication: This is where numpy shines. Matrix multiplication can be computationally 
+  intensive. Traditional methods can have a time complexity of O(n3) for n x n matrices. However, 
+  numpy uses optimized algorithms, like the Strassen algorithm, which reduces this significantly.
+
+- Exploring abstract data types
+  Abstract data types (ADTs) are high-level abstractions whose behavior is defined by a set of variables
+  and a set of related operations. ADTs define the implementation guidance of “what” needs to be expected
+  but give the programmer freedom in “how” it will be exactly implemented. Examples are vectors, queues, 
+  and stacks. This means that two different programmers can take two different approaches to implementing
+  an ADT, like a stack. By hiding the implementation level details and giving the user a generic, 
+  implementation-independent data structure, the use of ADTs creates algorithms that result in simpler
+  and cleaner code. 
+
+- Time complexity of vectors
+  When discussing the efficiency of vector operations, it’s vital to understand the time complexity:
+● Access: Accessing an element in both a Python list and a numpy array (vector) takes 
+  constant time, O(1). This ensures rapid data retrieval.
+● Appending: Appending an element to a Python list has an average time complexity of O(1). However,
+  for a numpy array, appending could take up to O(n) in the worst case since numpy arrays require 
+  contiguous memory locations.
+● Searching: Finding an element in a vector has a time complexity of O(n) because, in the
+  worst case, you might have to scan through all elements.
+
+- Stacks
+  A stack is a linear data structure to store a one-dimensional list. It can store items either in a
+  Last-In, First-Out (LIFO) or First-In, Last-Out (FILO) manner. The defining characteristic of a
+  stack is the way elements are added to and removed from it. A new element is added at one end
+  and an element is removed from that end only.
+
+- Time complexity of stack operations
+  Let us look into the time complexity of stack operations:
+● Push: This operation adds an element to the top of the stack. Since it doesn’t involve any 
+  iteration or checking, the time complexity of the push operation is O(1), or constant time.
+  The element is placed on top regardless of the stack’s size.
+● Pop: Popping refers to removing the top element from the stack. Given that there’s no need to 
+  interact with the rest of the stack, the pop operation also has a time complexity of O(1). 
+  It’s a direct action on the top element.
+
+- Queues
+  Like stacks, a queue stores n elements in a single-dimensional structure. The elements are added and 
+  removed in FIFO format. One end of the queue is called the rear and the other is called the front. 
+  When elements are removed from the front, the operation is called dequeue. When elements are added 
+  at the rear, the operation is called enqueue.
+
+- Time complexity analysis for queues
+  Let us look into the time complexity for queues:
+● Enqueue: This operation inserts an element t the end of the queue. Given its straightforward 
+  nature, without any need for iterating or traversing, the enqueue operation bears a time complexity
+  of O(1) a constant time.
+● Dequeue: Dequeueing means removing the front element from the queue. As the operation only 
+  involves the first element without any checks or iterations through the queue, its time 
+  complexity remains constant at O(1).
+
+- Some of the terminology related to the tree data structure:
+● Root node
+  A node with no parent is called the root node. For example, in the following diagram, the root node
+  is A. In algorithms, usually, the root node holds the most important value in the tree structure.
+● Level of a node
+  The distance from the root node is the level of a node. For example, in the following diagram, 
+  the level of nodes D, E, and F is two.
+● Siblings nodes
+  Two nodes in a tree are called siblings if they are at the same level. For example, 
+  if we check the following diagram, nodes B and C are siblings.
+● Child and parent node
+  Node F is a child of node C if both are directly connected and the level of node C is less than 
+  node F. Conversely, node C is a parent of node F. Nodes C and F in the following diagram show this
+  parent-child relationship.
+● Degree of a node
+  The degree of a node is the number of children it has. For example, in the following
+  diagram, node B has a degree of two.
+● Degree of a tree 
+  The degree of a tree is equal to the maximum degree that can be found among the constituent 
+  nodes of a tree. For example, the tree presented in the following diagram has a degree of two.
+● Subtree
+  A subtree of a tree is a portion of the tree with the chosen node as the root node of the subtree and 
+  all of the children as the nodes of the tree. For example, a subtree at node E of the tree presented 
+  in the following diagram consists of node E as the root node and nodes G and H as the two children.
+● Leaf node
+  A node in a tree with no children is called a leaf node. For example, in the following
+  figure, nodes D, G, H, and F are the four leaf nodes.
+● Internal node
+  Any node that is neither a root nor a leaf node is an internal node. An internal node
+  will have at least one parent and at least one child node.
+
+- Types of trees
+● Binary tree: If the degree of a tree is two, that tree is called a binary tree
+● Full tree: A full tree is one in which all of the nodes are of the same degree, 
+  which will be equal to the degree of the tree. 
+  ● Perfect tree: A perfect tree is a special type of full tree in which all the leaf nodes are at the
+    same level. For example, the binary tree on the right as shown in Figure 2.7 is a perfect, full 
+    tree as all the leaf nodes are at the same level – that is, level 2.
+  ● Ordered tree: If the children of a node are organized in some order according to particular
+    criteria, the tree is called an ordered tree. A tree, for example, can be ordered from left to
+    right in ascending order in which the nodes at the same level will increase in value while
+    traversing from left to right.
+
+
+
