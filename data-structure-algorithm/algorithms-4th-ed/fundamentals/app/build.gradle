@@ -26,6 +26,7 @@ dependencies {
 
     // https://mvnrepository.com/artifact/edu.princeton.cs/algs4
     // implementation 'edu.princeton.cs:algs4:1.0.4'
+    implementation group: 'edu.princeton.cs', name: 'algs4', version: '1.0.4'
 }
 
 // Apply a specific Java toolchain to ease working on different environments.

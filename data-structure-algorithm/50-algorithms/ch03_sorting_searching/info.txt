@@ -1,0 +1,33 @@
+
+- Bubble sort
+  Bubble sort is one of the simplest and slowest algorithms used for sorting. It is designed in such a
+  way that the highest value in a list of data bubbles makes its way to the top as the algorithm loops
+  through iterations. Bubble sort requires little runtime memory to run because all the ordering occurs 
+  within the original data structure. No new data structures are needed as temporary buffers. But its 
+  worst-case performance is O(N2), which is quadratic time complexity (where N is the number of elements 
+  being sorted). it is recommended to be used only for smaller datasets (below 1000 as general recommendation)
+
+- Performance analysis of the bubble sort algorithm
+  It is easy to see that bubble sort involves two levels of loops:
+● An outer loop: These are also called passes. For example, pass one is the first iteration
+  of the outer loop.
+● An inner loop: This is when the remaining unsorted elements in the list are sorted until the highest
+  value is bubbled to the right. The first pass will have N-1 comparisons, the second pass will have N-2
+  comparisons, and each subsequent pass will reduce the number of comparisons by one.
+
+- The time complexity of the bubble sort algorithm is as follows:
+● Best case: If the list is already sorted (or almost all elements are sorted), then the runtime
+  complexity is O(1).
+● Worst case: If none or very few elements are sorted, then the worst-case runtime complexity is 
+  O(n2) as the algorithm will have to completely run through both the inner and outer loops.
+
+- Insertion sort
+  The basic idea of insertion sort is that in each iteration, we remove a data point from the data
+  structure we have and then insert it into its right position. That is why we call this the insertion
+  sort algorithm.
+
+
+
+
+
+
