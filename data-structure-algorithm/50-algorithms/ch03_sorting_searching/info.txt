@@ -48,4 +48,23 @@
 ● Small datasets.
 ● Nearly sorted datasets, where only a few elements are out of order.
 
+- Merge sort
+  Merge sort stands distinctively among sorting algorithms, like bubble sort and insertion sort,
+  for its unique approach. Historically, it’s noteworthy that John von Neumann introduced this
+  technique in 1940. While many sorting algorithms perform better on partially sorted data, merge
+  sort remains unfazed; its performance remains consistent irrespective of the initial arrangement
+  of the data. This resilience makes it the preferred choice for sorting large datasets.
+  
+- Divide and conquer: the core of merge sort
+  Merge sort employs a divide-and-conquer strategy comprising two key phases – splitting and merging:
+● Splitting phase: Unlike directly iterating over the list, this phase recursively divides the dataset 
+  into halves. This division continues until each section reaches a minimal size (for illustrative 
+  purposes, let’s say a single element). While it might seem counterintuitive to split data to such 
+  granular levels, this granularity facilitates the organized merging in the next phase.
+● Merging phase: Here, the previously divided parts are systematically merged. The algorithm 
+  continually processes and combines these sections until the entire list is sorted.
+
+
+
+
 
