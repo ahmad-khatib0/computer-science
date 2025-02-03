@@ -64,7 +64,19 @@
 ● Merging phase: Here, the previously divided parts are systematically merged. The algorithm 
   continually processes and combines these sections until the entire list is sorted.
 
+- Performance analysis of the Shell sort algorithm
+  It can be observed that, in the worst case, the Shell sort algorithm will have to run through both
+  loops giving it a complexity of O(n2). Shell sort is not for big data. It is used for medium-sized
+  datasets. Roughly speaking, it has a reasonably good performance on a list with up to 6,000 elements.
+  If the data is partially in the correct order, the performance will be better. In a best-case scenario,
+  if a list is already sorted, it will only need one pass through N elements to validate the order, 
+  producing a best-case performance of O(N).
 
+- Performance analysis of the selection sort algorithm
+  Selection sort’s worst-case performance is O(N2). Note that its worst performance is similar to
+  bubble sort, and it should not be used for sorting larger datasets. Still, selection sort is a 
+  better-designed algorithm than bubble sort and its average performance is better than bubble sort
+  due to the reduction in the number of exchanges.
 
 
 
