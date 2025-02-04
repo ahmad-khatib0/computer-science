@@ -232,4 +232,12 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
   • Rows: Indicates the probability that the surfer will visit other nodes because of outbound links
 
 
+- Formulating a linear programming problem
+  The conditions for using linear programming are as follows:
+  • We should be able to formulate the problem through a set of equations.
+  • The variables used in the equation must be linear.
+
+- Linear programming is extensively used in the manufacturing industry to find the
+  optimal number of products that should be used to optimize the use of available resources.
+
 

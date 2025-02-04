@@ -1,6 +1,7 @@
 pandas
 numpy
 findspark
-pyspark
+pulp
 matplotlib
+pyspark
 
