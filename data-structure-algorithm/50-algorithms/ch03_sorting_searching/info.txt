@@ -91,4 +91,8 @@
   parts. If the data has N items, it will take a maximum of O(logN) steps to iterate. This means 
   that the algorithm has an O(logN) runtime.
   
+- Performance analysis of the interpolation search algorithm
+  If the data is unevenly distributed, the performance of the interpolation search algorithm will
+  be poor. The worst-case performance of this algorithm is O(N), and if the data is somewhat 
+  reasonably uniform, the best performance is O(log(log N)).
 
