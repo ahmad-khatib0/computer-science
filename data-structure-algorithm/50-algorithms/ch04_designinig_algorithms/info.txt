@@ -1,0 +1,235 @@
+- To come up with a good algorithm that can meet the functional and non-functional requirements,
+  our design should respect the following three concerns: 
+
+. Concern 1: correctness: will the designed algorithm produce the result we expect?
+  ● Defining the truth: To verify the algorithm, we need some known correct results for a given set of 
+    inputs. These known correct results are called the truths, in the context of the problem we are trying
+    to solve. The truth is important as it is used as a reference when we iteratively work on evolving our
+    algorithm toward a better solution.
+  ● Choosing metrics: We also need to think about how we are going to quantify the deviation from the 
+    defined truth. Choosing the correct metrics will help us to accurately quantify the quality of our 
+    algorithm. For example, for supervised machine learning algorithms, we can use existing labeled
+    data as the truth. We can choose one or more metrics, such as accuracy, recall, or precision, to 
+    quantify deviation from the truth
+  ● Consideration of edge cases: An edge case happens when our designed algorithm is op-
+    erating at the extremes of operating parameters.  
+
+. Concern 2: performance: is this the optimal way to get these results? 
+  ● Polynomial algorithm: If an algorithm has a time complexity of O(n^k), we call it a polynomial
+    algorithm, where k is a constant.
+  ● Certificate: A proposed candidate solution produced at the end of an iteration is called a certificate.
+    As we progress iteratively in solving a particular problem, we typically gener- ate a series of 
+    certificates. If the solution is moving toward convergence, each generated certificate will be better
+    than the previous one. At some point, when our certificate meets the requirements, we will choose 
+    that certificate as the final solution.
+
+- In the context of analyzing time complexity, we are looking at the following different time intervals:
+  ● Candidate solution generation time, tr: It is the time it takes for an algorithm to produce
+    a candidate solution.
+  ● Candidate solution verification time, ts: It is the time it takes to verify the candidate
+    solution (certificate).
+  
+- Characterizing the complexity of the problem. there are three types of problems:  
+ ● Problems for which we can guarantee that a polynomial algorithm exists that can be used to solve them
+ ● Problems for which we can prove that they cannot be solved by a polynomial algorithm
+ ● Problems for which we are unable to find a polynomial algorithm to solve them, but we are
+   also unable to prove that a polynomial solution for those problems is impossible to find
+
+- the various classes of problems according to their complexity:
+  ● Non-Deterministic Polynomial (NP): Problems that can be solved in polynomial time by a non-deterministic
+    computer. Broadly, it means that a reasonable solution to a problem can be found and verified in 
+    polynomial times by making a reasonable guess at every step without an effort to find the optimal 
+    solution. Formally, for a problem to be an NP problem, it must meet the following condition, named 
+    Condition A:
+     . Condition A: It is guaranteed that there is a polynomial algorithm that can be
+       used to verify that the candidate solution (certificate) is optimal.
+  ● Polynominal (P): Problems that can be solved in polynomial time by a deterministic computer. These 
+    problems can be solved by some algorithm with runtime O(Nk) for some power k, no matter how large. 
+    These are types of problems that can be thought of as a subset of NP. In addition to meeting the 
+    condition of an NP problem, Condition A, P problems need to meet another condition, named Condition B:
+    . Condition A: It is guaranteed that there is a polynomial algorithm that can be
+      used to verify that the candidate solution (certificate) is optimal.
+    . Condition B: It is guaranteed that there is at least one polynomial algorithm that
+      can be used to solve them.
+
+- Exploring the relationship between P and NP
+  Understanding the relationship between P and NP is still a work in progress. What we know for sure 
+  is that P is a subset of NP, i.e P ⊆ NP thats is obvious for the above discussion where NP needs to 
+  meet only the first of the two conditions that P needs to meet.
+  What we do not know for sure is that if a problem is NP, is it P as well? This is one of the greatest
+  problems in computer science that remains unresolved. Millennium Prize Problems, selected by the Clay 
+  Mathematics Institute, has announced a 1-million-dollar prize for the solution to this problem as it 
+  will have a major impact on fields such as AI, cryptography, and theoretical computer sciences. There 
+  are certain problems, such as sorting, that are known to be in P. Others, such as the knapsack and TSP, 
+  are known to be in NP.
+
+- Introducing NP-complete and NP-hard
+  Let’s continue the list of various classes of problems:
+  • NP-complete: The NP-complete category contains the hardest problems of all NP problems. 
+    An NP-complete problem meets the following two conditions:
+    • There are no known polynomial algorithms to generate a certificate.
+    • There are known polynomial algorithms to verify that the proposed certificate is optimal.
+  • NP-hard: The NP-hard category contains problems that are at least as hard as any problem
+    in the NP category, but that do not themselves need to be in the NP category.
+
+- Although this has not yet been proven, it is extremely likely that P ≠ NP. In that case, no polynomial
+  solution exists for NP-complete problems. Note that the (Figure 4.3) is based on this assumption.
+
+- The distinction between P, NP, NP-complete, and NP-hard: 
+  Let us summarize and study some examples to make better sense of the concepts: 
+  • P: It is the class of problems solvable in polynomial time. For example:
+    • Hashtable lookup
+    • Shortest path algorithms like Djikstra’s algorithms
+    • Linear and binary search algorithms
+  • NP-problem: The problems are not solvable in polynomial time, but their solution can
+    be verified in polynomial time. For example:
+    • RSA encryption algorithm
+  • NP-hard: These are complex problems that no one has come up with a solution for as yet,
+    but if solved, would have a polynomial time solution. For example:
+    • Optimal clustering using the K-means algorithm
+  • NP-complete: The NP-complete problems are the “hardest” in NP. They are both NP-hard
+    and NP. For example:
+    • Calculation of an optimal solution for the TSP
+
+Concern 3 – scalability: how is the algorithm going to perform on larger datasets?
+- While in the development and testing phase, many algorithms use only a small sample of data. When 
+  designing an algorithm, it is important to look into the scalability aspect of the algorithms. In 
+  particular, it is important to carefully analyze (that is, test or predict) the effect of an 
+  algorithm’s performance as datasets increase in size.
+
+- Understanding algorithmic strategies
+  A well-designed algorithm tries to optimize the use of the available resources most efficiently by 
+  dividing the problem into smaller subproblems wherever possible. There are different algorithmic 
+  strategies for designing algorithms. An algorithmic strategy deals with the following three aspects 
+  of an algorithm list containing aspects of the missing algorithm.
+  We will present the following three strategies in this section:
+   ● The divide-and-conquer strategy
+   ● The dynamic programming strategy
+   ● The greedy algorithm strategy
+  
+- Understanding the divide-and-conquer strategy
+  Mathematically, if we are designing a solution for a problem (P) with n inputs that needs to process 
+  dataset d, we split the problem into k subproblems, P1 to Pk. Each of the subproblems will process a
+  partition of the dataset, d. Typically, we will have P1 to Pk processing d1 to dk respectively.
+
+- Understanding the dynamic programming strategy
+  We studied divide and conquer, which is a top-down method. In contrast, dynamic programming is a 
+  bottom-up strategy. We start with the smallest subproblem and keep on combining the solutions. We keep
+  on combining until we reach the final solution. Dynamic programming, like the divide-and-conquer 
+  method, solves problems by combining the solutions with subproblems.
+  Dynamic programming is a strategy proposed in the 1950s by Richard Bellman to optimize certain classes
+  of algorithms. Note that in dynamic programming, the word “programming” refers to the use of a tabular
+  method and has nothing to do with writing code. In contrast to the divide and conquer strategy, dynamic
+  programming is applicable when the subproblems are not independent. It is typically applied to 
+  optimization problems in which each subproblem’s solution has a value.
+
+- Components of dynamic programming
+  ● Dynamic programming is based on two major components:
+  ● Recursion: It solves subproblems recursively.
+    Memoization: Memoization or caching. It is based on an intelligent caching mechanism that tries to 
+    reuse the results of heavy computations. This intelligent caching mechanism is called memoization. 
+    The subproblems partly involve a calculation that is repeated in those subproblems. The idea is to 
+    perform that calculation once (which is the time-consuming step) and then reuse it on the other 
+    subproblems. This is achieved using memoization, which is especially useful in solving recursive 
+    problems that may evaluate the same inputs multiple times.
+
+- Conditions for using dynamic programming
+  The problem we are trying to solve with dynamic programming should have two characteristics.
+  ● Optimal structure: Dynamic programming gives good performance benefits when the problem we 
+    are trying to solve can be divided into subproblems.
+  ● Overlapping subproblems: Dynamic programming uses a recursive function that solves a particular 
+    problem by calling a copy of itself and solving smaller subproblems of the original problems. The 
+    computed solutions of the subproblems are stored in a table, so that these don’t have to be re-comed.
+    Hence, this technique is needed where an over- lapping sub-problem exists.
+
+- Dynamic programming is a perfect fit for combinatorial optimization problems, which are problems 
+  that needs providing optimal combinations of input elements as a solution.
+  Examples include:
+    ● Finding the optimal way to deliver packages for a company like FedEx or UPS
+    ● Finding the optimal airline routes and airports
+    ● Deciding how to assign drivers for an online food delivery system like Uber Eats
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+##################################################################
+
+- Understanding greedy algorithms
+  As the name indicates, a greedy algorithm relatively quickly produces a good solution, but it cannot be 
+  the optimal solution. Like dynamic programming, greedy algorithms are mainly used to solve optimization
+  problems where a divide-and-conquer strategy cannot be used. In the greedy algorithm, the solution is 
+  calculated following a sequence of steps. At each step, a locally optimal choice is made.
+
+. Conditions for using greedy programming
+  Greedy is a strategy that works well on problems with the following two characteristics:
+  ● Global from local: A global optimum can be arrived at by selecting a local optimum.
+  ● Optimal substructure: An optimal solution to the problem is made from optimal solutions to subproblems.
+  
+- To understand the greedy algorithm, let’s first define two terms:
+  ● Algorithmic overheads: Whenever we try to find the optimal solution to a certain problem, it takes
+    some time. As the problems that we are trying to optimize become more and more complex, the time it
+    takes to find the optimal solution also increases. We represent algorithmic overheads with Ωi.
+  ● Delta from optimal: For a given optimization problem, there exists an optimal solution. Typically, 
+    we iteratively optimize the solution using our chosen algorithm. For a given problem, there always 
+    exists a perfect solution, called the optimal solution, to the current problem. As discussed, based 
+    on the classification of the problem we are trying to solve, it’s possible for the optimal solution 
+    to be unknown or for it to take an unreasonable amount of time to calculate and verify it. Assuming 
+    that the optimal solution is known, the difference from optimal for the current solution in the ith
+    iteration is called delta from optimal and reasonable by Δi. 
+
+For complex optimal problems, we have two by possible strategies:
+ . Spend more time finding a solution nearest to the optimal so that Δi as s possible.
+ . Minimize the algorithmic overhead, Ωi use the quick-and-dirty approach and just use a workable solution
+
+- Generally, a greedy algorithm is defined as follows:
+  1. Let’s assume that we have a dataset, D. In this dataset, choose an element, k.
+  2. Let’s assume the candidate solution or certificate is S. Consider including k in 
+     the solution, S. If it can be included, then the solution is Union(S, e).
+  3. Repeat the process until S is filled up or D is exhausted.
+
+Example:
+  The Classification And Regression Tree (CART) algorithm is a greedy algorithm, which searches for an
+  optimum split at the top level. It repeats the process at each subsequent level. Note that the CART 
+  algorithm does not calculate and check whether the split will lead to the lowest possible impurity 
+  several levels down. CART uses a greedy algorithm because finding the optimal tree is known to be 
+  an NP-complete problem. It has an algorithmic complexity of O(exp(m)) time.
+
+- Using a brute-force strategy
+  The first solution that comes to mind to solve the TSP is using brute force to come up with the 
+  shortest path in which the salesperson visits every city exactly once and returns to the initial city.
+  So, the brute-force strategy works as follows:
+    • Evaluate all possible tours.
+    • Choose the one for which we get the shortest distance.
+  The problem is that for n number of cities, there are (n-1)! possible tours. That means that five cities
+  will produce 4! = 24 tours, and we will select the one that corresponds to the lowest distance. It is
+  obvious that this method will only work when we do not have too many cities. As the number of cities 
+  increases, the brute-force strategy becomes unsolvable due to the large number of permutations 
+  generated by using this approach
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+##################################################################
+
+- while using the PageRank algorithm, the following representation is used:
+  . Web pages are represented by nodes in a directed graph.
+  . The graph edges correspond to hyperlinks.
+
+- To calculate a number from 0 to 1 that can quantify the importance of a particular page, 
+  the algorithm incorporates information from the following two components:
+  ● Information that was specific to the query entered by the user: This component estimates, in the 
+    context of the query entered by the user, how relevant the content of the web page is. The content
+    of the page is directly dependent on the author of the page.
+  ● Information that was not relevant to the query entered by the user: This component tries to quantify
+    the importance of each web page in the context of its links, views, and neighborhood. The 
+    neighborhood of a web page is the group of web pages directly connected to a certain page. 
+    This component is difficult to calculate as web pages are heterogeneous, and coming up with 
+    criteria that can be applied across the web is difficult to develop.-
+
+- Note that the transition matrix is a sparse matrix. As the number of nodes increases, most of its
+  values will be 0. Thus, the structure of a graph is extracted as a transition matrix. In a 
+  transaction matrix, nodes are represented in columns and rows:
+  • Columns: Indicates to the node that a web surfer is online
+  • Rows: Indicates the probability that the surfer will visit other nodes because of outbound links
+
+
+
