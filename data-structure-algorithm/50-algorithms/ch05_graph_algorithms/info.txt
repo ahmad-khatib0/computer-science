@@ -1,0 +1,109 @@
+- Real-world applications
+● Fraud detection: In the world of digital finance, fraudulent transactions can be deeply interconnected, 
+  often weaving a subtle web meant to deceive conventional detection systems. Graph theory is deployed to
+  spot these patterns. For instance, a sudden spike in interconnected small transactions from a singular 
+  source to multiple accounts might be a hint at money laundering.
+  
+● Air traffic control: The skies are bustling with movement. Every aircraft must navigate a maze of routes
+  while ensuring safe distances from others. Graph algorithms map the skies, treating each aircraft as a 
+  node and their flight paths as edges. The 2010 US air travel congestion events are a testament to the 
+  power of graph analytics. Scientists used graph theory to decipher systemic cascading delays, offering 
+  insights to optimize flight schedules and reduce the chances of such occurrences in the future.
+  
+● Disease spread modeling: The proliferation of diseases, especially contagious ones, doesn’t happen randomly;
+  they follow the invisible lines of human interaction and movement. Graph theory creates intricate models 
+  that mimic these patterns. By treating individuals as nodes and their interactions as edges, epidemiologists
+  have successfully projected disease spread, identifying potential hotspots and enabling timely interventions. 
+  For instance, during the early days of the COVID-19 pandemic, graph algorithms played a pivotal role 
+  in predicting potential outbreak clusters, helping to guide lockdowns and other preventive measures.
+  
+● Social media recommendations: Ever wondered how platforms like Facebook or Twitter suggest friends or
+  content? Underlying these suggestions are vast graphs representing user interactions, interests, and 
+  behaviors. For example, if two users have multiple mutual friends or similar engagement patterns, 
+  there’s a high likelihood they might know each other or have aligned interests. Graph algorithms help
+  decode these connections, enabling platforms to enhance user experience through relevant recommendations.
+
+
+- The basics of a graph: vertices (or nodes)
+  These are the individual entities or data points in the graph. Imagine each friend on your
+  Facebook list as a separate vertex:
+  ● Edges (or links): The connections or relationships between the vertices. When you become
+    friends with someone on Facebook, an edge is formed between your vertex and theirs.
+  ● Network: A larger structure formed by the interconnected web of vertices and edges. For example, the 
+    entirety of Facebook, with all its users and their friendships, can be viewed as a colossal network.
+
+- Representations of graphs: 
+  A graph is a structure that represents data in terms of vertices and edges. A graph is represented
+  as aˬGroup = (⋁, ε) where V represents a set of vertices and ε represents a set of edges, note that 
+  aˬGroup has |V| vertices and |ε| edges, its important to note that unless specified otherwise, an 
+  edge can be bidirectional, implying a two-way relationship between the connected vertices.
+  A vertex u ∈ v represents a Real-world object, such a person, a computer, or an activity. An edge
+  u ∈ ε connects two vertices in a network:  e(v1, v2) | e ∈ ε & vi ∈ V  
+
+- Graph mechanics and types
+  There are multiple types of graphs, each with its unique attributes:
+● Simple graph: A graph with no parallel edges or loops.
+● Directed graph (DiGraph): A graph where each edge has a direction, indicating a one-way relationship.
+● Undirected graph: A graph where edges don’t have a specific direction, suggesting a mutual relationship.
+● Weighted graph: A graph where each edge carries a weight, often representing distances, costs, etc.
+
+- Ego-centered networks
+  At the heart of many network analyses lies a concept called the ego-centered network, or simply,
+  the egonet. Imagine wanting to study not just an individual node but also its immediate surroundings.
+  This is where the egonet comes into play.
+
+Basics of egonets
+  For a given vertex—let’s call it m—the surrounding nodes that are directly connected to m from its 
+  direct neighborhood. This neighborhood, combined with m itself, constitutes the egonet of m. In this 
+  context:
+• m is referred to as the ego.
+• The directly connected nodes are termed one-hop neighbors or simply alters.
+
+
+- The shortest path
+  while Dijkstra’s algorithm focuses on identifying the shortest path from a single source to all other
+  vertices, if one aims to determine the shortest paths between every pair of vertices in a graph, the 
+  Floyd-Warshall algorithm is more suitable.
+
+Triangles
+  In the expansive world of graph theory, pinpointing vertices that share robust interconnections can 
+  unveil critical insights. A classic approach is to spot triangles— subgraphs where three nodes
+  maintain direct connections among themselves.
+
+Density
+  In the realm of graph theory, density is a metric that quantifies how closely knit a network is.
+  Specifically, it’s the ratio of the number of edges present in the graph to the maximum possible
+  number of edges. Mathematically, for a simple undirected graph, density is defined as:
+          Density  = 2 X number of edges / Number of vertices x (number of vertices - 1)
+  Suppose we are part of a book club with five members: Alice, Bob, Charlie, Dave, and Eve. If every
+  member knows and has interacted with every other member, there would be a total of 10 connections 
+  (or edges) among them (Alice-Bob, Alice-Charlie, Alice-Dave, Alice-Eve, Bob-Charlie, and so on). 
+  In this case, the maximum number of possible connections or edges is 10. If all these connections 
+  exist, then the density is:
+                 Density =  2 X 10 / 5 X 4 = 1 
+  This indicates a perfectly dense or fully connected netword 
+  However, let’s assume Alice knows only Bob and Charlie, Bob knows Alice and Dave, and Charlie
+  knows only Alice. Dave and Eve, although members, haven’t interacted with anyone yet. In this
+  scenario, there are only three actual connections: Alice-Bob, Alice-Charlie, and Bob-Dave: 
+                 Density = 2 X 3  / 5 X 4 = 0.3 
+
+- The most employed centrality metrics in graph analysis encompass:
+● Degree: Reflects the direct connections a node has.
+● Betweenness: Indicates how often a node acts as a bridge along the shortest path between two other nodes.
+● Closeness: Represents how close a node is to all other nodes in the network.
+● Eigenvector: Measures a node’s influence based on the quality of its connections, not just the quantity.
+
+- Graphs are a general representation of objects (vertices or nodes) and their relationships (edges), 
+  and centrality measures help identify the importance or influence of these nodes within the graph.
+
+- Degree
+  The number of edges connected to a particular vertex is called its degree. It can indicate how
+  well connected a particular vertex is and its ability to quickly spread a message across a network.
+  Let's consider ^aGraph = (∨, ε) where v represents a set of vertices and ε represents a set of edges 
+  Recall that ^aGraph has |V| vertices and |ε| edges if we devide the degree of node by (|V| - 1) it 
+  is called the degree centerality: 
+                ^CDCa  = deg (a) / |V| - 1 
+  
+                
+
+

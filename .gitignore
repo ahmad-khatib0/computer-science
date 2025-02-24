@@ -6,3 +6,12 @@ build
 
 # python
 __pycache__
+
+# latex
+*.synctex.gz
+*.aux
+document.pdf
+*.out
+*.fls
+*.fdb_latexmk
+*.log
