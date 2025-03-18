@@ -82,6 +82,33 @@ void printUnorderedPairs(vector<string> arr) {
   }
 }
 
+// 100,000 units of work is still constant, so the runtime is 0( ab)
+void printUnorderedPairs2(vector<string> arr1, vector<string> arr2) {
+  for (int i = 0; i < arr1.size(); i++) {
+    for (int j = 0; j < arr2.size(); j++) {
+      for (int k = 0; k < 100000; k++) {
+        cout << k << "\n";
+      }
+    }
+  }
+  cout << "" << endl;
+}
+
+// What is the time complexity of this function?
+// The for loop will start when x = 2 and end when x*x = n. Or, in other words, it stops
+// when x = vn (when x equals the square root of n). This runs in O(square n) time.
+bool isPrime(int n) {
+  if (n <= 1) {
+    return false;
+  }
+
+  for (int x = 2; x * x <= n; x++) {
+    if (n % x == 0)
+      return false;
+  }
+  return true;
+}
+
 int main(int argc, char *argv[]) {
   // There will be roughly O(N) calls to pairSum. However, those calls do not
   // exist simultaneously on the call stack, so you only need O(1) space

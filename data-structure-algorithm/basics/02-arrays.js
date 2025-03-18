@@ -44,12 +44,15 @@ class MyArray {
     return item;
   }
   shiftItems(index) {
+    // start on the index where deleting occurred
     for (let i = index; i < this.length - 1; i++) {
-      // start on the index where deleting occurred
-      this.data[i] = this.data[i + 1]; //move what is the i on, to what is the next of it
+      // move what is the i on, to what is the next of it
+      this.data[i] = this.data[i + 1];
     }
-    delete this.data[this.length - 1]; // delete the last item,, if we don't do that, the last item will be kept
-    // because in the loop, we had shifted all items to the right , that last item we didn't touch it,
+    delete this.data[this.length - 1];
+    // delete the last item,, if we don't do that, the last item will be kept
+    // because in the loop, we had shifted all items to the right , that last
+    // item we didn't touch it,
     this.length--;
   }
 }
@@ -66,7 +69,7 @@ console.log(newArray);
 //given an array of integer, return the indices of the two numbers that add up to a given target
 const numsArray = [1, 3, 7, 9, 2];
 
-const findTwoSum = function (nums, target) {
+const findTwoSum = function(nums, target) {
   for (let p1 = 0; p1 < nums.length; p1++) {
     const numberToFind = target - nums[p1];
     for (let p2 = p1 + 1; p2 < nums.length; p2++) {
@@ -82,18 +85,19 @@ const findTwoSum = function (nums, target) {
 findTwoSum(numsArray, 11);
 
 //  optimal solution  with HASH MAP
-const findTwoSum = function (nums, target) {
+//  E,g arr = [1, 3, 7, 9, 2];
+const findTwoSumOptimal = function(nums, target) {
   const numsMap = {};
   for (let p = 0; p < nums.length; p++) {
-    const currentMapVal = numsMap[nums[p]];
+    const currentMapVal = numsMap[nums[p]]; //1>null, 2>null,
     if (currentMapVal >= 0) {
       return [currentMapVal, p];
     } else {
-      const numberToFind = target - nums[p];
-      numsMap[numberToFind] = p;
+      const numberToFind = target - nums[p]; // 1>10, 2>8
+      numsMap[numberToFind] = p; // {10:0}{...,8:1}
     }
   }
   return null;
 };
 
-console.log(findTwoSum(numsArray, targetToFind));
+console.log(findTwoSumOptimal(numsArray, 11));

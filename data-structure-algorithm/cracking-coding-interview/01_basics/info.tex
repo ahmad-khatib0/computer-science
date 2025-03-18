@@ -128,6 +128,64 @@ What is k in the expression $2^k = N$? This is exactly what log expresses.\\
 $2^4 = 16       \hspace{40pt}          log_2l6 = 4$\\
 $log_2N = k     \hspace{40pt}          2^k = N      $\\\\
 This is a good takeaway for you to have. When you see a problem where the number of elements
-in the problem space gets halved each time, that will likely be a 0(log N) runtime.
+in the problem space gets halved each time, that will likely be a 0(log N) runtime.\\\\
+
+What about for 1, 2, 3, ... , N? The average value in this sequence is N/ 2.
+Therefore, since the inner loop does N/2 work on average and it is run N times, the total
+work is  $N^2/2$ which is $O(N^2)$.\\
+
+Which of the following are equivalent to O(N)? Why?
+\begin{itemize}
+\item O(N + P), where P $<$ N/2
+\item 0(2N)
+\item O(N + log N)
+\item O(N + M)
+\end{itemize}
+
+The solution is
+\begin{itemize}
+\item If P $<$ N/2, then we know that N is the dominant term so we can drop the 0(P).
+\item 0(2N) is O(N) since we drop constants.
+\item O(N) dominates O(log N),so we can drop the O(log N).
+\item There is no established relationship between N and M, so we have to keep both variables in there.\\
+Therefore,all but the last one are equivalent to O(N).
+\end{itemize}
+
+\vspace{20pt}
+Suppose we had an algorithm that took in an array of strings, sorted each string, and then sorted
+the full array. What would the runtime be? \\\\
+Many candidates will reason the following: sorting each string is O(N log N) and we have to do this for
+each string, so that's O(N*N log N). We also have to sort this array, so that's an additional
+O(N log N) work. Therefore,the total runtime is $O(N^2 log N + N log N)$,which is just $0(N^2 log N)$.\\
+This is completely incorrect. Did you catch the error?\\
+The problem is that we used N in two different ways. In one case,it's the length of the string
+(which string?). And in another case,it's the length of the array. In your interviews, you can prevent
+this error by either not using the variable "N" at all,or by only using it when there is no ambiguity
+as to what N could represent. In fact, I wouldn't even use a and b here, or m and n. It's too easy to
+forget which is which and mix them up. An $O(a^2)$ runtime is completely different from an O(a*b) runtime.\\
+Let's define new terms-and use names that are logical.\\
+\begin{itemize}
+\item Let s be the length of the longest string.
+\item Let a be the length of the array.
+\end{itemize}
+Now we can work through this in parts:
+\begin{itemize}
+\item Sorting each string is 0(s log s).
+\item We have to do this for every string (and there are a strings),so that's 0(a* s log s).
+\item Now we have to sort all the strings. There are a strings, so you'll may be inclined to say
+that this takes O (a log a) time. This is what most candidates would say. You should also take into
+account that you need to compare the strings. Each string comparison takes O(s) time. There are
+O(a log a) comparisons, therefore this will take 0(a*s log a) time.
+\end{itemize}
+If you add up these two parts,you get 0(a* s (log a + log s)).\\\\
+
+\textbf{Best Conceivable Runtime (BCR)\\}
+Considering the best conceivable runtime can offer a useful hint for some problem. The best
+conceivable runtime is, literally, the best runtime you could conceive of a solution to 
+a problem having. You can easily prove that there is no way you could beat the BCR.\\
+For example, suppose you want to compute the number of elements that two arrays 
+(of length A and B) have in common. You immediately know that you can't do that in better 
+than O(A + B) time because you have to "touch" each element in each array. O(A + B) is the BCR.
+
 
 \end{document}

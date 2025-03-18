@@ -1,6 +1,7 @@
-// You are given an array of positive integers where each integer represents the height of a vertical line on a chart.
-// Find two lines which together with the x axis, forms a container that would hold the greatest amounts
-// of water. Return the area of water it would hold.
+// You are given an array of positive integers where each integer represents the height
+// of a vertical line on a chart. Find two lines which together with the x axis, forms
+// a container that would hold the greatest amounts of water. Return the area of water
+// it would hold.
 
 // constraints
 // 1- does the thickness of the lines affect the area?
@@ -14,7 +15,7 @@
 
 const array = [7, 1, 2, 3, 9];
 
-let mostWater = function (arr) {
+let mostWater = function(arr) {
   let max = 0;
   for (let a = 0; a < arr.length; a++) {
     for (let b = a + 1; b < arr.length; b++) {
@@ -35,7 +36,7 @@ let mostWater = function (arr) {
 // optimal solution with two pointer technich
 
 const heightsArray = [4, 8, 1, 2, 3, 9, 4, 3];
-const getMaxWaterContainer = function (heights) {
+const getMaxWaterContainer = function(heights) {
   let p1 = 0,
     p2 = heights.length - 1,
     maxArea = 0;
