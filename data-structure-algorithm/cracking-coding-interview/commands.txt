@@ -1,0 +1,6 @@
+
+- to run a java file that import classes from the java_library:
+$ javac -d out java_library/*.java
+$ javac -d out -cp out 02_arrays_and_string/03_urlify/Urlify.java
+$ java -cp out _02_arrays_and_string._03_urlify.Urlify
+
