@@ -11,6 +11,13 @@
 
 A common approach in string manipulation problems is to edit the string starting from 
 the end and working backwards. This is useful because we have an extra buffer at the end,
-which allows us to change characters without worrying about what we're overwriting.
+which allows us to change characters without worrying about what we're overwriting.\\
+
+What does it take to be able to write a set of characters the same way forwards and 
+backwards? We need to have an even number of almost all characters, so that half can 
+be on one side and half can be on the other side. At most one character (the middle character)
+can have an odd count. For example, we know tactcoapapa is a permutation of a palindrome
+because it has two Ts, four As, two Cs, two Ps, and one 0. That O would be the center 
+of all possible palindromes
 
 \end{document}

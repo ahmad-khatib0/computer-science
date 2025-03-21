@@ -15,3 +15,8 @@ document.pdf
 *.fls
 *.fdb_latexmk
 *.log
+
+# java 
+*.class
+
+*.asc
