@@ -138,6 +138,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "zero_matrix"
+version = "0.1.0"
+dependencies = [
+ "rand",
+ "rust_lib",
+]
+
+[[package]]
 name = "zerocopy"
 version = "0.8.24"
 source = "registry+https://github.com/rust-lang/crates.io-index"
