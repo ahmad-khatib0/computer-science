@@ -120,21 +120,19 @@ impl LinkedListNode {
     }
 }
 
-fn main() {
-    let node3 = LinkedListNode::new(3);
-    let node2 = LinkedListNode::new_with_links(2, Some(node3.clone()), None);
-    let node1 = LinkedListNode::new_with_links(1, Some(node2.clone()), None);
+pub fn create_linked_list_from_array(arr: &[i32]) -> Option<Rc<RefCell<LinkedListNode>>> {
+    if arr.is_empty() {
+        return None;
+    }
 
-    println!("Original: {}", node1.borrow().print_forward());
+    let head = LinkedListNode::new(arr[0]);
+    let mut current = Rc::clone(&head);
 
-    let cloned = LinkedListNode::clone(&node1);
-    println!("Cloned: {}", cloned.borrow().print_forward());
+    for &item in &arr[1..] {
+        let new_node = LinkedListNode::new(item);
+        current.borrow_mut().next = Some(Rc::clone(&new_node));
+        current = new_node;
+    }
 
-    // Modify original
-    node1.borrow_mut().set_next(None);
-    println!("Modified original: {}", node1.borrow().print_forward());
-    println!(
-        "Cloned remains unchanged: {}",
-        cloned.borrow().print_forward()
-    );
+    Some(head)
 }
