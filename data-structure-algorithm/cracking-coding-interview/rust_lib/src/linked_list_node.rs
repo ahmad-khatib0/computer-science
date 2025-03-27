@@ -48,19 +48,19 @@ impl LinkedListNode {
         self.next = next.clone();
 
         // Update last pointer if this was the last node
-        // Used Rc::ptr_eq to compare references (similar to == in Java)
-        if let Some(last) = &self.last {
-            if Rc::ptr_eq(
-                last,
-                &Rc::new(RefCell::new(Self {
-                    data: self.data,
-                    next: None,
-                    prev: None,
-                    last: None,
-                })),
-            ) {
-                self.last = next.clone();
-            }
+        // Update last pointer if this was the last node
+        if let Some(next_node) = &self.next {
+            // The new last node is the last node of the next node's list
+            let next_last = next_node.borrow().last.clone();
+            self.last = next_last;
+        } else {
+            // If there's no next node, this is the last node
+            self.last = Some(Rc::new(RefCell::new(Self {
+                data: self.data,
+                next: None,
+                prev: None,
+                last: None,
+            })));
         }
 
         // Establish new relationship
@@ -130,6 +130,7 @@ pub fn create_linked_list_from_array(arr: &[i32]) -> Option<Rc<RefCell<LinkedLis
 
     for &item in &arr[1..] {
         let new_node = LinkedListNode::new(item);
+        new_node.borrow_mut().prev = Some(Rc::downgrade(&current));
         current.borrow_mut().next = Some(Rc::clone(&new_node));
         current = new_node;
     }
