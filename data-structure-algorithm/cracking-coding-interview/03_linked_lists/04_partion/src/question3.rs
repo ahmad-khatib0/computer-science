@@ -2,8 +2,6 @@ use std::{cell::RefCell, rc::Rc};
 
 use rust_lib::linked_list_node::LinkedListNode;
 
-type Item = Option<Rc<RefCell<LinkedListNode>>>;
-
 pub fn partition(
     node: Option<Rc<RefCell<LinkedListNode>>>,
     x: i32,
