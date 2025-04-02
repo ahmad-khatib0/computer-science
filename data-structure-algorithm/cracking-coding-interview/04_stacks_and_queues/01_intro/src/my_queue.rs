@@ -54,7 +54,7 @@ impl<T> MyQueue<T> {
         }
     }
 
-    // Remove and return the first item from the queue
+    /// Remove and return the first item from the queue
     pub fn remove(&mut self) -> Result<T, QueueError> {
         unsafe {
             self.first.map_or(Err(QueueError::EmptyQueue), |first_ptr| {
@@ -82,7 +82,6 @@ impl<T> MyQueue<T> {
     }
 
     // Check if the queue is empty
-    #[inline]
     pub fn is_empty(&self) -> bool {
         self.first.is_none()
     }
