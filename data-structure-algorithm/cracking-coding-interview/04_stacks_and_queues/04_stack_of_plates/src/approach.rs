@@ -65,7 +65,7 @@ impl Stack {
             return false;
         }
 
-        self.size += 1; // Increment size first, matching Java behavior
+        self.size += 1;
         let mut new_node = Box::new(Node::new(v));
 
         if let Some(mut old_top) = self.top.take() {
