@@ -1,0 +1,6 @@
+[package]
+name = "animal_shelter"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
